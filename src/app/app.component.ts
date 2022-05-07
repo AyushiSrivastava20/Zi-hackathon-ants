@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Zi-hackathon-ants';
+  x = 1;
+
+  callClick() {
+    console.log("clickewd")
+  }
 }
