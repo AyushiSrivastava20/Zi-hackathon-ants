@@ -12,7 +12,6 @@ initExtension();
 
 function initExtension() {
   $(document).ready(() => {
-    console.log("i ma ready")
     const appRoot = document.createElement('app-zi-hackathon-ants');
     document.body.appendChild(appRoot);
     return platformBrowserDynamic()

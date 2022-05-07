@@ -7,6 +7,8 @@ import { ChatboxComponent } from './chatbox/chatbox.component';
 import { RecommendationpanelComponent } from './recommendationpanel/recommendationpanel.component';
 import { FlowhelperComponent } from './flowhelper/flowhelper.component';
 import { TextComponent } from './text/text.component';
+import {DomComponentsService} from "./services/dom-handler/dom-components.service";
+import {DomHandlerService} from "./services/dom-handler/dom-handler.service";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { TextComponent } from './text/text.component';
   exports: [
     ChatboxComponent,
   ],
-  providers: [],
+  providers: [DomComponentsService, DomHandlerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

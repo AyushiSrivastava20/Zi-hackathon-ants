@@ -15,6 +15,7 @@
     animation: comein 1s forwards;
     animation-delay: 3s;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 10000;
 }
 
 @keyframes comein{
