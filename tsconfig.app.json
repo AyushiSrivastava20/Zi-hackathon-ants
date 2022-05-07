@@ -3,7 +3,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "outDir": "./out-tsc/app",
-    "types": ["node"],
+    "types": ["chrome","node"],
     "typeRoots": ["node_modules/@types"]
   },
   "files": ["src/main.ts", "src/polyfills.ts"],

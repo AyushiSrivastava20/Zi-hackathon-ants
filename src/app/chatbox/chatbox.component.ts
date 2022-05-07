@@ -5,7 +5,7 @@ const CHROME = chrome;
 @Component({
   selector: 'app-chatbox',
   templateUrl: './chatbox.component.html',
-  styleUrls: ['./chatbox.component.scss']
+  styleUrls: ['./chatbox.component.css']
 })
 export class ChatboxComponent implements OnInit {
   private EXTENSION_URL = `chrome-extension://${CHROME.i18n.getMessage('@@extension_id')}`;
