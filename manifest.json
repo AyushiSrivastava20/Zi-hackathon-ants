@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "Zi-Hackathon Ants",
+  "description": "ddsdsd",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}
