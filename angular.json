@@ -129,11 +129,11 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "dozi-apps-engage-chrome-extension-angular:build"
+            "browserTarget": "Zi-hackathon-ants:build:production"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dozi-apps-engage-chrome-extension-angular:build:production"
+              "browserTarget": "Zi-hackathon-ants:build:production"
             }
           }
         },
