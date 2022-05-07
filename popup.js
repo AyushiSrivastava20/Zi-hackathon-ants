@@ -1,5 +1,5 @@
 funcPopup = function () {
-    document.querySelector('#close-button').addEventListener('click', closeWindow);
+   console.log("hello!!!!!!!!!")
 };
 
 closeWindow = function () {
