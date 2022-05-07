@@ -1,0 +1,18 @@
+@import "../dialog-template.component";
+:host {
+
+  .app-dialog-footer {
+    flex-shrink: 0;
+    border-top: 1px solid $primary-40;
+    height: 52px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 32px;
+    align-items: center;
+    box-sizing: border-box;
+
+    .left {
+      margin-right: auto;
+    }
+  }
+}

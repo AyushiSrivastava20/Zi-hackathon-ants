@@ -1,0 +1,9 @@
+[{
+  "step": -1,
+  "url": "apps/marketing/form-complete/wizard/new",
+  "stepDescription": "When a user selects a field that has drop down values, show this message: “Click on the gear icon next to the Zoominfo field to do advanced mapping”",
+  "type": "annimation",
+  "button" : [
+  ]
+}
+]

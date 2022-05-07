@@ -1,0 +1,243 @@
+@import "~src/styles/base.scss";
+
+$dialog-top-bottom-padding: 12px;
+$dialog-sides-padding: 16px;
+$dialog-buttons-gap: $dialog-footer-buttons-space;
+
+
+.dialog-template {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // min-height: 182px;
+  background-color: $white;
+  border-radius: 10px;
+
+  &-top-border {
+    background-color: $primary-60;
+    height: 3px;
+    border-radius: 10px 10px 0 0;
+    flex-shrink: 0;
+  }
+
+  &-header {
+    display: flex;
+    flex-shrink: 0;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 21px 32px 8px 32px;
+    height: 53px;
+    box-sizing: border-box;
+    color: $gray-100;
+    font-family: $font-family-semi-bold;
+    align-items: center;
+    &-close {
+      color: $dialog-header-close-btn;
+      margin-left: auto;
+      margin-right: -8px;
+      height: 24px;
+      transition: color 0.35s;
+      &:hover {
+        cursor: pointer;
+        color: $dialog-header-close-btn-hover;
+      }
+
+      .icon-x {
+        cursor: pointer;
+        font-size: 24px;
+      }
+
+      .close-icon-disabled {
+        @include disabled-text;
+      }
+    }
+    &-back {
+      margin-right: auto;
+      padding-top: 12px;
+
+      &:hover {
+        cursor: hand;
+      }
+
+      .icon-arrow_left {
+        cursor: pointer;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+::ng-deep .cdk-overlay-container {
+  // change z-index for dialogs
+  z-index: 1003;
+}
+
+:host-context(.feed-popup) {
+  .dialog-template {
+    position: relative;
+    box-shadow: 0 1px 7px 0 rgba(107, 2, 79, 0.05);
+    border-radius: 6px;
+    &-top-border {
+      display: none;
+    }
+    &-header {
+      border-radius: 4px 4px 0 0;
+      border-top: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 68px;
+      margin-bottom: -20px;
+      @include font-style($size: $font-xxlarge, $weight: $font-weight-semi-bold, $color: $white);
+      line-height: 24px;
+      &-text {
+        padding-top: 12px;
+      }
+    }
+  }
+}
+
+:host-context(.gmail-ext){
+  .dialog-template {
+    border-radius: 4px;
+  }
+  .dialog-template-top-border {
+    background-color: $secondary-60;
+  }
+}
+
+:host-context(.feed-popup-voip) {
+  @extend :host-context(.feed-popup);
+}
+
+:host-context(.voip-feed-popup) {
+
+  mat-dialog-container.mat-dialog-container {
+    border-radius: 6px 6px 0px 0px;
+  }
+
+  .dialog-template-header {
+    height: 0px;
+    padding: 0px 16px;
+    border-radius: 6px 6px 0px 0px;
+  }
+  .dialog-template {
+    position: relative;
+    box-shadow: 0 1px 7px 0 rgba(107, 2, 79, 0.05);
+    &-top-border {
+      display: none;
+    }
+    &-header {
+      border-radius: 6px 6px 0px 0px;
+      border-bottom: none;
+      border-top: none;
+      padding: 0;
+      @include font-style($size: $font-large, $weight: $font-weight-semi-bold, $color: $white);
+    }
+  }
+}
+
+:host(.quick-filter-dialog-template) {
+  .dialog-template-header {
+      font-size: $font-small;
+    }
+}
+
+:host-context(.outer-container) {
+
+  mat-dialog-container.mat-dialog-container {
+    border-radius: 6px 6px 0px 0px;
+  }
+
+  .dialog-template-header {
+    height: 0px;
+    padding: 0px 16px;
+    border-radius: 6px 6px 0px 0px;
+  }
+  .dialog-template {
+    position: relative;
+    box-shadow: 0 1px 7px 0 rgba(107, 2, 79, 0.05);
+    &-top-border {
+      display: none;
+    }
+    &-header {
+      border-radius: 6px 6px 0px 0px;
+      border-bottom: none;
+      border-top: none;
+      padding: 0;
+      @include font-style($size: $font-large, $weight: $font-weight-semi-bold, $color: $white);
+    }
+  }
+}
+
+
+:host(.locked-zi-header) {
+  .dialog-template-header {
+    font-size: $font-large;
+  }
+}
+
+:host(.dozi-header) {
+  .dialog-template-header {
+    font-size: 24px;
+    padding: 8px 8px 1px 8px;
+    height: 20px;
+    text-align: center;
+    border-bottom: 1px solid white;
+    border-top: none;
+
+    &-top-border {
+      display: none;
+    }
+  }
+}
+
+:host(.dozi-trial-header) {
+  .dialog-template {
+    &-header {
+      font-size: $font-small;
+      padding: 3px 8px 1px 16px;
+
+      &-text {
+        padding-top: 3px;
+      }
+
+      &-close {
+        color: $dialog-header-close-btn;
+        margin-left: auto;
+
+        .icon-x {
+          font-size: $font-5xxlarge;
+        }
+      }
+    }
+  }
+}
+
+:host(.dozi-features-header) {
+  @extend :host(.dozi-header);
+  .dialog-template-header {
+    padding-top: 16px;
+  }
+}
+
+:host(.delete-tag){
+  overflow-y: hidden;
+}
+
+:host-context(.close-btn-without-margin){
+  .dialog-template-header-close{
+    margin-left: 0;
+  }
+}
+
+:host-context(.add-remove-tag-extension-mode){
+  .dialog-template-header-text {
+    font-size: $font-xxlarge;
+  }
+
+  .dialog-template-header {
+    padding: 21px 16px 8px 16px;
+  }
+}

@@ -1,0 +1,12 @@
+@import "../dialog-template.component";
+
+$default-dialog-padding: 16px 32px 32px 32px;
+$font-small: 12px;
+$font-weight-normal: 400;
+:host {
+  @include font-style($font-small, $gray-100, $font-weight-normal);
+  padding: $default-dialog-padding;
+  display: block;
+  overflow: auto;
+  flex-grow: 1;
+}

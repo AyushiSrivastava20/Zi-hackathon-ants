@@ -1,0 +1,23 @@
+<div class="dialog-template" [automationId]="'dialog-template'">
+  <div class="triangle"></div>
+  <div class="dialog-template-top-border" *ngIf="hasHeader"></div>
+  <div class="dialog-template-header" *ngIf="hasHeader">
+    <span class="dialog-template-header-icon">
+      <ng-content select='i'></ng-content>
+    </span>
+    <span class="dialog-template-header-back" *ngIf="hasGoBackIcon">
+      <i class="icon-arrow_left" (click)="goBackDialog($event)"></i>
+    </span>
+    <span [automationId]="'dialog-template-header-text'" *ngIf="dialogTitle?.length > 0">
+      <app-dotten-text class="dialog-template-header-text" [text]="dialogTitle"></app-dotten-text>
+    </span>
+    <ng-content select=".app-dialog-title"></ng-content>
+    <span class="dialog-template-header-close" *ngIf="hasCloseIcon">
+      <i class="icon-x" [ngClass]="{'close-icon-disabled': isCloseButtonDisabled}" (click)="closeDialog($event)" [automationId]="'icon-x'"></i>
+    </span>
+  </div>
+  <ng-content select=".app-dialog-subHeader"></ng-content>
+  <ng-content select="app-dialog-content"></ng-content>
+  <ng-content select="app-dialog-footer"></ng-content>
+  <ng-content select=".app-dialog-footer"></ng-content>
+</div>
