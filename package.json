@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --aot --single-bundle --keep-polyfills --extra-webpack-config webpack.config.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -18,6 +18,8 @@
     "@angular/platform-browser": "~12.0.2",
     "@angular/platform-browser-dynamic": "~12.0.2",
     "@angular/router": "~12.0.2",
+    "copy-webpack-plugin": "^10.2.4",
+    "ngx-build-plus": "^12.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"
