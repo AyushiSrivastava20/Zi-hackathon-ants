@@ -1,6 +1,6 @@
 <div class="popup-container" (click)="openCloseRecommendation()" (mouseenter)="openWindow()" (mouseleave)="closeWindow()">
     <div id="assistant" class="popup">
-        <div id="bright-bulb-container">
+        <div id="bright-bulb-container" *ngIf="!isShowWindow">
             <img [src]="brightbulbUrl" id="bright-bulb-image"/>
         </div>
         <img class="logoimage" [src]="assistantUrl">

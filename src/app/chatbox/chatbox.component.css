@@ -3,7 +3,7 @@
     animation: comein 1s forwards;
     animation-delay: 3s;
     bottom: 40vh;
-    right: -44px;
+    right: -60px;
     z-index: 200000000000;
     background-color: transparent;
     display: flex;
@@ -28,7 +28,7 @@
 }
 
 @keyframes comein{
-    from    {right: -44px;}
+    from    {right: -60px;}
     to      {right: 10px;}
 }
 
