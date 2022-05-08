@@ -70,7 +70,7 @@ export class ChatboxComponent implements OnInit {
                     opacity: 1;\
                   }\
                   \
-                  10% {\
+                  12% {\
                     height: '+moreOptionsPosition.height.toString()+'px;\
                     width: '+(moreOptionsPosition.width+18).toString()+'px;\
                     top: '+moreOptionsPosition.top.toString()+'px;\
@@ -87,7 +87,7 @@ export class ChatboxComponent implements OnInit {
                 }';
               style.innerHTML = keyFrames;
               document.getElementsByTagName('head')[0].appendChild(style);
-              dimmer.style.animation = "highlight 5s ease-out forwards";
+              dimmer.style.animation = "highlight 4s ease-out forwards";
 
             }, 5000);
             break;
