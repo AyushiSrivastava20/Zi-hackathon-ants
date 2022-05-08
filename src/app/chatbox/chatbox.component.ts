@@ -63,6 +63,44 @@ export class ChatboxComponent implements OnInit {
         switch (this.path) {
           case '/apps/home-page':
             this.homePageHandling();
+            setTimeout(() => {
+              console.log('DOM fully loaded and parsed');
+              let moreOptionsDiv = document.querySelector("#show-more-down-arrow > div > div.navbar-item-content-name");
+              let moreOptionsPosition = moreOptionsDiv.getBoundingClientRect();
+              console.log("moreOptionsPosition", moreOptionsPosition);
+              let dimmer = document.getElementById("dimmer");
+              var style = document.createElement('style');
+              style.type = 'text/css';
+              var keyFrames = '\
+                @keyframes highlight {\
+                  0% {\
+                    height: 120vh;\
+                    width: 120vw;\
+                    top:0;\
+                    left:0;\
+                    opacity: 1;\
+                  }\
+                  \
+                  12% {\
+                    height: '+moreOptionsPosition.height.toString()+'px;\
+                    width: '+(moreOptionsPosition.width+18).toString()+'px;\
+                    top: '+moreOptionsPosition.top.toString()+'px;\
+                    left: '+moreOptionsPosition.left.toString()+'px;\
+                    opacity: 1;\
+                  }\
+                  100%{\
+                    height: '+moreOptionsPosition.height.toString()+'px;\
+                    width: '+(moreOptionsPosition.width+18).toString()+'px;\
+                    top: '+moreOptionsPosition.top.toString()+'px;\
+                    left: '+moreOptionsPosition.left.toString()+'px;\
+                    opacity: 0;\
+                  }\
+                }';
+              style.innerHTML = keyFrames;
+              document.getElementsByTagName('head')[0].appendChild(style);
+              dimmer.style.animation = "highlight 4s ease-out forwards";
+
+            }, 5000);
             break;
           case '/apps/marketing/form-complete/analytics':
             this.handleFormCompleteAnalytics();

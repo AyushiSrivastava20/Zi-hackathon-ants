@@ -224,3 +224,16 @@ span.green-text{
     height: 9px;
     width: 7px;
 }
+
+#dimmer{
+    position: absolute;
+    z-index: 999999999998;
+    box-shadow: 0 0 0 100000vmax rgba(0, 0, 0, .5);
+    height: 120vh;
+    width: 120vw;
+    top:0;
+    left:0;
+    pointer-events: none;
+    animation: height 10s ease-out, width 10s ease-out, top 10s ease-out, left 10s ease-out;
+}
+
