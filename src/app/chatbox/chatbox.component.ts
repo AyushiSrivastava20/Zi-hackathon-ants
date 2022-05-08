@@ -81,7 +81,23 @@ export class ChatboxComponent implements OnInit {
   }
 
   handleFormCompleteSubmission() {
-    console.log('handleFormCompleteSubmission');
+    this.isFlowRunning = true;
+    const insentWidgetCheckElement = async selector => {
+      while ( document.querySelector(selector) === null) {
+        await new Promise( resolve =>  requestAnimationFrame(resolve) )
+      }
+      return true;
+    };
+    insentWidgetCheckElement('#btn-apply').then((selector) => {
+      setTimeout(() => {
+        document.querySelector('#btn-apply').addEventListener('click', () => {
+          this.currentPathStepIndex = this.currentPathStepIndex + 1;
+          const flows: any[] = this.urlFlow[this.path];
+          this.message = flows[this.currentPathStepIndex]?.stepDescription;
+          this.buttonText = flows[this.currentPathStepIndex]?.button;
+        })
+      }, 3000)
+    });
   }
 
   handleFormCompleteManagement() {
@@ -98,7 +114,6 @@ export class ChatboxComponent implements OnInit {
       }, 3000)
     });
     insentWidgetCheckElement('[automationid="action-button-dropdown-li-auto mapping"]').then((selector) => {
-      console.log("happening");
       setTimeout(() => {
         this.startAnimation('[automationid="action-button-dropdown-li-auto mapping"]');
       }, 3000)
@@ -106,6 +121,19 @@ export class ChatboxComponent implements OnInit {
   }
 
   homePageHandling() {
+    const insentWidgetCheckElement = async selector => {
+      while ( document.querySelector('#show-more-down-arrow') === null) {
+        await new Promise( resolve =>  requestAnimationFrame(resolve) )
+      }
+      return true;
+    };
+    insentWidgetCheckElement('#show-more-down-arrow').then((selector) => {
+      setTimeout(() => {
+        document.getElementById('show-more-down-arrow').addEventListener('click', () => {
+          this.startAnimation('#show-more-down-arrow > div > div.navbar-item-content-hidden-pages > div > div:nth-child(4)');
+        })
+      }, 3000)
+    });
   }
 
   handleFormCompleteAnalytics() {
@@ -164,7 +192,6 @@ export class ChatboxComponent implements OnInit {
   startAnimation(selector) {
     let moreOptionsDiv = document.querySelector(selector);
     let moreOptionsPosition = moreOptionsDiv.getBoundingClientRect();
-    console.log("moreOptionsPosition", moreOptionsPosition);
     let dimmer = document.getElementById("dimmer");
     var style = document.createElement('style');
     style.type = 'text/css';

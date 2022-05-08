@@ -52,7 +52,7 @@
   "/apps/marketing/form-complete/wizard/new" : [
     {
       "step": 1,
-      "url": "apps/marketing/form-complete/wizard/new",
+      "url": "/apps/marketing/form-complete/wizard/new",
       "stepDescription": "Enter the website URL where the form is available and click Apply",
       "type": "animation",
       "button" : [
@@ -60,7 +60,7 @@
     },
     {
       "step": 2,
-      "url": "apps/marketing/form-complete/wizard/new",
+      "url": "/apps/marketing/form-complete/wizard/new",
       "stepDescription": "Select the form you want to configure on the left side and click “Next”",
       "type": "blur_dim",
       "button" : [
@@ -68,7 +68,7 @@
     },
     {
       "step": 3,
-      "url": "apps/marketing/form-complete/wizard/new",
+      "url": "/apps/marketing/form-complete/wizard/new",
       "stepDescription": "Click on “Add Field” to map your form fields with Zoominfo fields",
       "type": "animation",
       "button" : [

@@ -2,7 +2,7 @@
     position: fixed;
     animation: comein 1s forwards;
     animation-delay: 3s;
-    bottom: 40vh;
+    bottom: 20vh;
     right: -60px;
     z-index: 200000000000;
     background-color: transparent;
