@@ -9,6 +9,7 @@ import { FlowhelperComponent } from './flowhelper/flowhelper.component';
 import { TextComponent } from './text/text.component';
 import {DomComponentsService} from "./services/dom-handler/dom-components.service";
 import {DomHandlerService} from "./services/dom-handler/dom-handler.service";
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {DomHandlerService} from "./services/dom-handler/dom-handler.service";
     ChatboxComponent,
     RecommendationpanelComponent,
     FlowhelperComponent,
-    TextComponent
+    TextComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
