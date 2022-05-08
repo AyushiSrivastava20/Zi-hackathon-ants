@@ -1,32 +1,32 @@
 [
   {
-    "name": "Naveen Ramkumar",
+    "name": "Jim Halpert",
     "level" : 4,
     "points" : 4000
   },
   {
-    "name": "Cristiano Ronaldo",
+    "name": "Andrew Bernard",
     "level" : 3,
     "points" : 2400
   },
   {
-    "name": "Shyam Ganapathy",
+    "name": "Michael Scott",
     "level" : 2,
     "points" : 1600
   },
   {
-    "name": "Prasanna Venkatesh",
+    "name": "Dwight Schurte",
     "level" : 1,
     "points" : 700
   },
   {
-    "name": "Tony Tom",
+    "name": "Stanley Hudson",
     "level" : 1,
     "points" : 600
   },
   {
     "name": "David Beckham",
-    "level" : 2,
-    "points": 1400
+    "level" : 1,
+    "points": 200
   }
 ]
