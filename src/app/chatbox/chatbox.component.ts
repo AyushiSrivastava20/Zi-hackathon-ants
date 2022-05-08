@@ -15,6 +15,9 @@ export class ChatboxComponent implements OnInit {
   private EXTENSION_URL = `chrome-extension://${CHROME.i18n.getMessage('@@extension_id')}`;
   assistantUrl: SafeResourceUrl;
   chartUrl: SafeResourceUrl;
+  bulbUrl: SafeResourceUrl;
+  learnMoreUrl: SafeResourceUrl;
+  brightbulbUrl: SafeResourceUrl;
   isShowWindow = false;
   urlFlow = {...urlSteps}
   constructor(private domHandler: DomHandlerService, private _domSanitizer: DomSanitizer, private router: Router) {
@@ -23,6 +26,15 @@ export class ChatboxComponent implements OnInit {
     );
     this.chartUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
         this.EXTENSION_URL + '/assets/images/chart.png'
+    );
+    this.bulbUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
+        this.EXTENSION_URL + '/assets/images/bulb.svg'
+    );
+    this.learnMoreUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
+        this.EXTENSION_URL + '/assets/images/learnmore.svg'
+    );
+    this.brightbulbUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
+        this.EXTENSION_URL + '/assets/images/brightbulb.svg'
     );
   }
 

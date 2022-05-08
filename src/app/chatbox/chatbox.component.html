@@ -1,14 +1,36 @@
-<div class="popup-container">
-    <div id="assistant" class="popup" (click)="openWindow()">
+<div class="popup-container" (mouseenter)="openWindow()" (mouseleave)="closeWindow()">
+    <div id="assistant" class="popup">
+        <div id="bright-bulb-container">
+            <img [src]="brightbulbUrl" id="bright-bulb-image"/>
+        </div>
         <img class="logoimage" [src]="assistantUrl">
     </div>
     <div  id="recommend-panel" class="recommend-panel" *ngIf="isShowWindow">
         <div class="recommend-panel-header">
+            <div id="recommend-panel-recommend">
+                <img id="recommend-panel-recommend-bulb-image" class="bulbImage" [src]="bulbUrl" alt="bulb image"/>
+                <p id="recommend-panel-recommend-text">
+                    Recommendation
+                </p>
+            </div>
+            <p id="found-useful">234 others found this useful</p>
         </div>
-        <div class="recommend-panel-body">Implement FormComplete to get an uplift of 34% in
+        <div class="flex-container implement-container">
+            <div class="recommend-panel-body">Implement FormComplete to get an uplift of <span class="green-text">34%</span> in
             qualified leads !</div>
+            <div class="learn-more-text">
+                Learn more
+                <img [src]="learnMoreUrl" id="learn-more-image"/>
+            </div>
+        </div>
         <div><img class="chartImage" [src]="chartUrl"></div>
-        <div class="recommend-panel-footer"></div>
+        <div class="recommend-panel-footer">
+            <p class="notuserforme">This is not useful for me</p>
+            <div class="flex-container">
+                <div class="white-button">Remind me next week</div>
+                <div class="blue-button">Show me</div>
+            </div>
+        </div>
     </div>
 </div>
 

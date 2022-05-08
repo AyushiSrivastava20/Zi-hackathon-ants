@@ -1,5 +1,16 @@
 .popup-container {
-    position: relative;
+    position: fixed;
+    animation: comein 1s forwards;
+    animation-delay: 3s;
+    bottom: 40vh;
+    right: -44px;
+    z-index: 200000000000;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 12px;
+    align-items: flex-end;
+
 }
 
 .popup{
@@ -7,19 +18,13 @@
     height: 40px;
     border-radius: 50%;
     background-color: powderblue;
-    position: fixed;
-    top: 67.5%;
-    right: -44px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     border: 1.5px solid royalblue;
-    transform: translateY(-50%);
-    animation: comein 1s forwards;
-    animation-delay: 3s;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     z-index: 10000;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 @keyframes comein{
@@ -32,24 +37,29 @@
     height: 30px;
 }
 
-.popup:hover{
-    transform: translateY(-50%) scale(1.1);
-    filter: brightness(90%);
-}
-
 .recommend-panel{
-    position: fixed;
-    transform: translateY(-180px);
     background-color: #fff;
     border-radius: 8px;
-    padding: 10px;
     box-shadow: 0 16px 30px #6b024f1f;
     cursor: default;
     z-index: 10000;
     display: flex;
     flex-direction: column;
-    right: 10px;
-    bottom: 160px;
+    padding: 17px 22px;
+    border-top: 2px solid #428AFF;
+    animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+@keyframes unfoldIn {
+    0% {
+        transform:scaleY(.005) scaleX(0);
+    }
+    50% {
+        transform:scaleY(.005) scaleX(1);
+    }
+    100% {
+        transform:scaleY(1) scaleX(1);
+    }
 }
 
 .chartImage {
@@ -59,8 +69,11 @@
 .recommend-panel-header {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 54px;
+}
+
+.recommend-panel-header-text{
+    display: flex;
+    flex-direction: column;
 }
 
 .recommend-panel-body {
@@ -68,7 +81,7 @@
 }
 
 .recommend-panel-footer {
-    height: 54px;
+    margin-top: 5px;
 }
 
 .closeImage {
@@ -77,4 +90,131 @@
 
 .actionType {
 
+}
+
+#recommend-panel-recommend{
+    width: 82px;
+    height: 15px;
+    background-color: #FFF2DA;
+    display: flex;
+    border-radius: 2px;
+}
+#recommend-panel-recommend-text{
+    font-weight: 500;
+    font-size: 7px;
+    line-height: 150%;
+    color: #000000;
+    margin: 3px 2px 2px 2px;
+}
+
+#recommend-panel-recommend-bulb-image{
+    width: 8px;
+    height: 8px;
+    margin: 3px;
+}
+
+span.green-text{
+    color: #42BC56;
+}
+
+.recommend-panel-body{
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 150%;
+    width: 308px;
+}
+
+#found-useful{
+    color: #FAA066;
+    font-size: 6px;
+    line-height: 22px;
+    margin: 0;
+}
+
+.blue-button{
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    background: #0061FF;
+    border: 1px solid #0061FF;
+    color: #FFFFFF;
+    font-size: 10px;
+    line-height: 22px;
+    padding: 0 14px;
+}
+
+.white-button{
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    background: #FFFFFF;
+    border: 1px solid #ADC5FF;
+    color: #0061FF;
+    font-size: 10px;
+    line-height: 22px;
+    padding: 0 14px;
+}
+
+.notuserforme{
+    font-size: 8px;
+    line-height: 22px;
+    opacity: 0.5;
+    margin: 0 !important;
+    text-align: end;
+}
+
+.recommend-panel-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.flex-container{
+    display: flex;
+    gap: 5px;
+}
+
+#learn-more-image{
+    margin-left: 2px;
+}
+
+.implement-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 12px;
+}
+
+.learn-more-text{
+    margin-bottom: 4px;
+    color: #BBB9B9;
+    height: 8px;
+    font-size: 8px;
+}
+
+#found-useful{
+    line-height: 12px;
+    margin: 0 0 8px 0;
+}
+
+#bright-bulb-container{
+    background-color: #BFD1FF;
+    border: 1px solid #FFFFFF;
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+#bright-bulb-image{
+    height: 9px;
+    width: 7px;
 }
