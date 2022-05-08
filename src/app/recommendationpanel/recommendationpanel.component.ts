@@ -19,10 +19,14 @@ export interface Recommendation {
 export class RecommendationpanelComponent implements OnInit {
   private EXTENSION_URL = `chrome-extension://${CHROME.i18n.getMessage('@@extension_id')}`;
   chartPointUrl
+  closeIconUrl
   recommendationsList: Recommendation[] = recommendations;
   constructor(private _domSanitizer: DomSanitizer) {
     this.chartPointUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
-        this.EXTENSION_URL + '/assets/images/chart_point.svg'
+        this.EXTENSION_URL + '/assets/images/level3zoom.svg'
+    );
+    this.closeIconUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
+        this.EXTENSION_URL + '/assets/images/closeIconBlack.svg'
     );
   }
 

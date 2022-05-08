@@ -1,21 +1,26 @@
 <div class="recommendation-container">
     <div class="fixed-top-header">
         <div>Actions</div>
-        <div>Close Icon</div>
+        <div id="close-icon">
+            <img [src]="closeIconUrl" />
+        </div>
     </div>
     <div class="user-points">
         <img class="chartPoint" [src]="chartPointUrl">
-        <div class="user-points-details"><div>Tony Tom</div> <div>Points: 600</div></div>
+        <div class="user-points-details">
+            <div>Tony Tom</div>
+            <div>Points: 600</div>
+        </div>
     </div>
     <div class="scrollable-container">
         <ng-container *ngFor="let r of recommendationsList">
             <div class="card-container">
                 <div class="wrapper">
                     <div class="header-text">{{r.tittle}}</div>
-                    <div *ngIf="r.points">{{r.points}}</div>
+                    <div class="header-points" *ngIf="r.points">Points: {{r.points}}</div>
                 </div>
                 <div class="body-text">{{r.recommendation}}</div>
-                <button>{{r.buttonAction}}</button>
+                <div class="button-container">{{r.buttonAction}}</div>
             </div>
         </ng-container>
     </div>
