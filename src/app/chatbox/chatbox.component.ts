@@ -168,8 +168,9 @@ export class ChatboxComponent implements OnInit {
     let dimmer = document.getElementById("dimmer");
     var style = document.createElement('style');
     style.type = 'text/css';
+    let random_number = Math.floor(Math.random()*10000);
     var keyFrames = '\
-                @keyframes highlight {\
+                @keyframes highlight'+random_number+' {\
                   0% {\
                     height: 120vh;\
                     width: 120vw;\
@@ -179,23 +180,23 @@ export class ChatboxComponent implements OnInit {
                   }\
                   \
                   12% {\
-                    height: '+moreOptionsPosition.height.toString()+'px;\
-                    width: '+(moreOptionsPosition.width+18).toString()+'px;\
-                    top: '+moreOptionsPosition.top.toString()+'px;\
-                    left: '+moreOptionsPosition.left.toString()+'px;\
+                    height: '+(moreOptionsPosition.height+6).toString()+'px;\
+                    width: '+(moreOptionsPosition.width+10).toString()+'px;\
+                    top: '+(moreOptionsPosition.top-3).toString()+'px;\
+                    left: '+(moreOptionsPosition.left-5).toString()+'px;\
                     opacity: 1;\
                   }\
                   100%{\
-                    height: '+moreOptionsPosition.height.toString()+'px;\
-                    width: '+(moreOptionsPosition.width+18).toString()+'px;\
-                    top: '+moreOptionsPosition.top.toString()+'px;\
-                    left: '+moreOptionsPosition.left.toString()+'px;\
+                    height: '+(moreOptionsPosition.height+6).toString()+'px;\
+                    width: '+(moreOptionsPosition.width+10).toString()+'px;\
+                    top: '+(moreOptionsPosition.top-3).toString()+'px;\
+                    left: '+(moreOptionsPosition.left-5).toString()+'px;\
                     opacity: 0;\
                   }\
                 }';
     style.innerHTML = keyFrames;
     document.getElementsByTagName('head')[0].appendChild(style);
-    dimmer.style.animation = "highlight 4s ease-out forwards";
+    dimmer.style.animation = "highlight"+random_number+" 4s ease-out forwards";
   }
 
 }
