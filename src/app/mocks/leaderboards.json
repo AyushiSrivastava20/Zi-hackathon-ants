@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Naveen Ramkumar",
+    "level" : 4,
+    "points" : 4000
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "level" : 3,
+    "points" : 2400
+  },
+  {
+    "name": "Shyam Ganapathy",
+    "level" : 2,
+    "points" : 1600
+  },
+  {
+    "name": "Prasanna Venkatesh",
+    "level" : 1,
+    "points" : 700
+  },
+  {
+    "name": "Tony Tom",
+    "level" : 1,
+    "points" : 600
+  },
+  {
+    "name": "David Beckham",
+    "level" : 2,
+    "points": 1400
+  }
+]

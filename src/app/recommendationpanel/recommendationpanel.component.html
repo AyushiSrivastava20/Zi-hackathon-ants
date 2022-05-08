@@ -1,18 +1,25 @@
 <div class="recommendation-container">
     <div class="fixed-top-header">
-        <div>Actions</div>
         <div id="close-icon" (click)="closePanel()">
             <img [src]="closeIconUrl" />
         </div>
     </div>
-    <div class="user-points">
+    <div class="user-points" id="lessmargin">
         <img class="chartPoint" [src]="chartPointUrl">
         <div class="user-points-details">
             <div>Tony Tom</div>
             <div>Points: 600</div>
         </div>
     </div>
-    <div class="scrollable-container">
+    <div class="flex-container" id="join-slack-community">
+        <div class="green-button">Join the Slack Community</div>
+        <img [src]="linkedInIconUrl" id="linkedinimage"/>
+    </div>
+    <div class="navbar">
+        <div id="actiontab" (click)="changetab(1)">Actions</div>
+        <div id="leadertab" (click)="changetab(2)">Leaderboards</div>
+    </div>
+    <div class="scrollable-container" *ngIf="activeTabId===1; else other">
         <ng-container *ngFor="let r of recommendationsList">
             <div class="card-container">
                 <div class="wrapper">
@@ -24,4 +31,18 @@
             </div>
         </ng-container>
     </div>
+    <ng-template #other>
+        <div class="scrollable-container">
+            <ng-container *ngFor="let r of leaderboardsList">
+                <div class="user-points">
+                    <img class="chartPoint" [src]="getSrc(r.level)">
+                    <div class="user-points-details">
+                        <div>{{r.name}}</div>
+                        <div>{{r.points}}</div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </ng-template>
+
 </div>

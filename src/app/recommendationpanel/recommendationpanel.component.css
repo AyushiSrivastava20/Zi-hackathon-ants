@@ -7,8 +7,8 @@
     justify-content: center;
     border-top-left-radius: 8px;
     background: #f2f6ff;
-    width: 308px;
-    padding: 18px 0 18px 18px;
+    width: 316px;
+    padding: 18px 0px 18px 18px;
     z-index: 999999999999;
     border: 1px solid #D9DDE4;
     border-right: none;
@@ -49,9 +49,8 @@
 
 .fixed-top-header {
     display: flex;
-    border-bottom: 1px solid #CACACA;
-    justify-content: space-between;
-    padding: 0 20px 16px 0;
+    justify-content: flex-end;
+    padding: 0 20px 0 0;
 }
 
 .fixed-profile {
@@ -60,10 +59,6 @@
 
 .scrollable-container {
     overflow-y: scroll;
-}
-
-.scrollable-container:last-child{
-    margin-bottom: 30px;
 }
 
 .chartPoint {
@@ -161,4 +156,80 @@
     display: flex;
     align-items: center;
     padding: 4px 8px;
+}
+
+.navbar{
+    border-bottom: 1px solid #CACACA;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#actiontab{
+    padding-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+#leadertab{
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+@keyframes moveUp {
+    0% {
+        transform:translateX(0) translateY(0) scale(1);
+    }
+    50% {
+        transform:translateX(10px) translateY(-51px) scale(1.2);
+    }
+    100% {
+        transform:translateX(0) translateY(-102px) scale(1);
+    }
+}
+
+@keyframes moveDown {
+    0% {
+        transform:translateY(0)
+    }
+    100% {
+        transform:translateY(102px);
+    }
+}
+
+.user-points:nth-child(5){
+    animation: moveUp 1s ease forwards;
+    z-index: 5000;
+}
+
+.user-points:nth-child(4){
+    animation: moveDown 1s ease forwards;
+    z-index: 4999;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
+
+#lessmargin{
+    margin-bottom: 10px;
+}
+
+#join-slack-community{
+    margin-bottom: 30px;
+}
+
+.green-button{
+    color: white;
+    padding: 4px 8px;
+    background-color: #4bb543;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#linkedinimage{
+    cursor: pointer;
 }
