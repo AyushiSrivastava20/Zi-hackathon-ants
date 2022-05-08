@@ -47,12 +47,14 @@
             </div>
             <div class="recommend-panel-footer">
                 <div class="flex-container" *ngIf="buttonText.length > 0">
-                    <div *ngIf="buttonText[0].text" class="green-button">{{buttonText[0].text}}</div>
+                    <div *ngIf="buttonText[0].text" (click)="openLeaderBoard()" class="green-button">{{buttonText[0].text}}</div>
                 </div>
             </div>
         </ng-template>
     </div>
 </div>
-<app-recommendationpanel *ngIf="isShowRecommendation" (closePanelEmit)="closeRecommendation()"></app-recommendationpanel>
+<app-recommendationpanel *ngIf="isShowRecommendation"
+                         [activeTabId]="tab"
+                         (closePanelEmit)="closeRecommendation()"></app-recommendationpanel>
 <div id="dimmer" ></div>
 

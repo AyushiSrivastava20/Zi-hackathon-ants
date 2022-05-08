@@ -1,4 +1,4 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import recommendations from '../mocks/recommendations.json';
 import leaderboards from '../mocks/leaderboards.json'
 import {DomSanitizer} from "@angular/platform-browser";
@@ -34,7 +34,7 @@ export class RecommendationpanelComponent implements OnInit {
   level3Url;
   level4Url;
   linkedInIconUrl;
-  activeTabId = 1;
+  @Input() activeTabId = 1;
   recommendationsList: Recommendation[] = recommendations;
   leaderboardsList: Leaderboards[] = leaderboards;
   @Output() closePanelEmit = new EventEmitter<boolean>();

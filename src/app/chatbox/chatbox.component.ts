@@ -31,6 +31,7 @@ export class ChatboxComponent implements OnInit {
   currentPathStepIndex = 0;
   closeIconUrl;
   typePanel;
+  tab = 1;
   constructor(private _domComponent: DomComponentsService, private domHandler: DomHandlerService, private _domSanitizer: DomSanitizer, private router: Router) {
     this.oldHrefSub = new BehaviorSubject(null);
     this.assistantUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
@@ -54,6 +55,11 @@ export class ChatboxComponent implements OnInit {
     this.tShirtUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
         this.EXTENSION_URL + '/assets/images/t_p.png'
     );
+  }
+
+  openLeaderBoard(){
+    this.isShowRecommendation = true;
+    this.tab = 2;
   }
 
   ngOnInit(): void {
