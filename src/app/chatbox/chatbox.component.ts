@@ -4,6 +4,8 @@ const CHROME = chrome;
 import urlSteps from '../mocks/url_flows.json';
 import { Router } from '@angular/router';
 import {DomHandlerService} from "../services/dom-handler/dom-handler.service";
+import {RecommendationpanelComponent} from "../recommendationpanel/recommendationpanel.component";
+import {DomComponentsService} from "../services/dom-handler/dom-components.service";
 
 @Component({
   selector: 'app-chatbox',
@@ -18,8 +20,9 @@ export class ChatboxComponent implements OnInit {
   learnMoreUrl: SafeResourceUrl;
   brightbulbUrl: SafeResourceUrl;
   isShowWindow = false;
+  isShowRecommendation = false;
   urlFlow = {...urlSteps}
-  constructor(private domHandler: DomHandlerService, private _domSanitizer: DomSanitizer, private router: Router) {
+  constructor(private _domComponent: DomComponentsService, private domHandler: DomHandlerService, private _domSanitizer: DomSanitizer, private router: Router) {
     this.assistantUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
         this.EXTENSION_URL + '/assets/images/icon.png'
     );
@@ -38,7 +41,6 @@ export class ChatboxComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPositionOfAssistant();
   }
 
   openWindow() {
@@ -49,12 +51,8 @@ export class ChatboxComponent implements OnInit {
     this.isShowWindow = false;
   }
 
-  // TODO: change this
-  getPositionOfAssistant() {
-    const element = document.getElementById('assistant');
-    const { top, bottom, right, height } = element.getBoundingClientRect();
-    // const panel = document.getElementById('recommend-panel')
-    // panel.style.bottom = `${height + 100}px` ;
+  openCloseRecommendation(){
+    this.isShowRecommendation = !this.isShowRecommendation
   }
 
 }

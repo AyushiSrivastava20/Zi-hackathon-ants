@@ -1,4 +1,4 @@
-<div class="popup-container" (mouseenter)="openWindow()" (mouseleave)="closeWindow()">
+<div class="popup-container" (click)="openCloseRecommendation()" (mouseenter)="openWindow()" (mouseleave)="closeWindow()">
     <div id="assistant" class="popup">
         <div id="bright-bulb-container">
             <img [src]="brightbulbUrl" id="bright-bulb-image"/>
@@ -33,5 +33,5 @@
         </div>
     </div>
 </div>
-<app-recommendationpanel></app-recommendationpanel>
+<app-recommendationpanel *ngIf="isShowRecommendation"></app-recommendationpanel>
 
