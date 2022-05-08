@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Zi-Hackathon Ants",
   "description": "Zoominfo Better",
-  "version": "1.0",
+  "version": "1.0.0",
   "icons": {
     "16": "assets/images/icon.png",
     "48": "assets/images/icon.png",

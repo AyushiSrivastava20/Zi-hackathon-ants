@@ -4,12 +4,13 @@
       "step": 1,
       "url": "/apps/home-page",
       "stepDescription": "Implement FormComplete to get an uplift of 34% in qualified leads !",
-      "type": "animation",
+      "type": "recommendation",
       "button" : [
         {
+          "type": 2,
           "text": "Remind me next week"
         },
-        {
+        { "type": 1,
           "text": "Show me"
         }
       ]
@@ -20,12 +21,13 @@
       "step": 1,
       "url": "/apps/marketing/form-complete/analytics",
       "stepDescription": "Did you know that you can generate more leads with FormComplete? Go to Management Tab and get started!",
-      "type": "animation",
+      "type": "recommendation",
       "button" : [
         {
+          "type": 2,
           "text": "Remind me next week"
         },
-        {
+        { "type": 1,
           "text": "Show me"
         }
       ]
@@ -36,7 +38,7 @@
       "step": 1,
       "url": "/apps/marketing/form-complete/management",
       "stepDescription": "Click on Create New Form",
-      "type": "animation",
+      "type": "recommendation",
       "button" : [
       ]
     },
@@ -44,7 +46,7 @@
       "step": 2,
       "url": "apps/marketing/form-complete/management",
       "stepDescription": "Click on Auto Mapping",
-      "type": "animation",
+      "type": "recommendation",
       "button" : [
       ]
     }
@@ -54,7 +56,7 @@
       "step": 1,
       "url": "/apps/marketing/form-complete/wizard/new",
       "stepDescription": "Enter the website URL where the form is available and click Apply",
-      "type": "animation",
+      "type": "recommendation",
       "button" : [
       ]
     },
@@ -62,7 +64,7 @@
       "step": 2,
       "url": "/apps/marketing/form-complete/wizard/new",
       "stepDescription": "Select the form you want to configure on the left side and click “Next”",
-      "type": "blur_dim",
+      "type": "recommendation",
       "button" : [
       ]
     },
@@ -70,32 +72,41 @@
       "step": 3,
       "url": "/apps/marketing/form-complete/wizard/new",
       "stepDescription": "Click on “Add Field” to map your form fields with Zoominfo fields",
-      "type": "animation",
+      "type": "recommendation",
       "button" : [
+        {},
+        {
+          "type": 3,
+          "text": "Next"
+        }
       ]
     },
     {
       "step": 4,
-      "url": "apps/marketing/form-complete/wizard/new",
-      "stepDescription": "When a user selects a field that has drop down values, show this message: “Click on the gear icon next to the Zoominfo field to do advanced mapping”",
-      "type": "animation",
+      "url": "/apps/marketing/form-complete/wizard/new",
+      "stepDescription": "Did you know that you can increase the lead capture by 30% by enabling Abandoned Form Tracking and IP based enrichment?",
+      "type": "recommendation",
       "button" : [
       ]
     },
     {
       "step": 5,
-      "url": "apps/marketing/form-complete/wizard/new",
-      "stepDescription": "Did you know that you can increase the lead capture by 30% by enabling Abandoned Form Tracking and IP based enrichment?",
-      "type": "animation",
+      "url": "/apps/marketing/form-complete/wizard/new",
+      "stepDescription": "You’re almost done. All you need to do now is to add the script on the website URL where the form is available",
+      "type": "recommendation",
       "button" : [
       ]
     },
     {
       "step": 6,
-      "url": "apps/marketing/form-complete/wizard/new",
-      "stepDescription": "You’re almost done. All you need to do now is to add the script on the website URL where the form is available",
-      "type": "animation",
+      "url": "/apps/marketing/form-complete/wizard/new",
+      "stepDescription": "Yay! You're moving up the leaderboard. Collect your ZoomInfo Swag! \uD83C\uDF89",
+      "type": "success",
       "button" : [
+        {
+          "type": 2,
+          "text": "Checkout the leaderboard!"
+        }
       ]
     }
   ]
