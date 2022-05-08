@@ -6,33 +6,51 @@
         <img class="logoimage" [src]="assistantUrl">
     </div>
     <div  id="recommend-panel" class="recommend-panel" *ngIf="(isShowWindow && !isShowRecommendation) || isFlowRunning">
-        <div class="recommend-panel-header">
-            <div>
-                <div id="recommend-panel-recommend">
-                    <img id="recommend-panel-recommend-bulb-image" class="bulbImage" [src]="bulbUrl" alt="bulb image"/>
-                    <p id="recommend-panel-recommend-text">
-                        Recommendation
-                    </p>
+        <ng-container *ngIf="typePanel === 'recommendation'; else success">
+            <div class="recommend-panel-header">
+                <div>
+                    <div id="recommend-panel-recommend">
+                        <img id="recommend-panel-recommend-bulb-image" class="bulbImage" [src]="bulbUrl" alt="bulb image"/>
+                        <p id="recommend-panel-recommend-text">
+                            Recommendation
+                        </p>
+                    </div>
+                    <p id="found-useful">234 others found this useful</p>
                 </div>
-                <p id="found-useful">234 others found this useful</p>
+                <img class="close-icon" *ngIf="isFlowRunning" [src]="closeIconUrl" (click)="stopFlow()" />
             </div>
-            <img class="close-icon" *ngIf="isFlowRunning" [src]="closeIconUrl" (click)="stopFlow()" />
-        </div>
-        <div class="flex-container implement-container">
-            <div class="recommend-panel-body">{{message}}</div>
-            <div class="learn-more-text">
-                Learn more
-                <img [src]="learnMoreUrl" id="learn-more-image"/>
+            <div class="flex-container implement-container">
+                <div class="recommend-panel-body">{{message}}</div>
+                <div class="learn-more-text">
+                    Learn more
+                    <img [src]="learnMoreUrl" id="learn-more-image"/>
+                </div>
             </div>
-        </div>
-        <div><img class="chartImage" [src]="chartUrl"></div>
-        <div class="recommend-panel-footer">
-            <p class="notuserforme">This is not useful for me</p>
-            <div class="flex-container" *ngIf="buttonText.length > 0">
-                <div class="white-button">{{buttonText[0].text}}</div>
-                <div class="blue-button" (click)="showMe()">{{buttonText[1].text}}</div>
+            <div><img class="chartImage" [src]="chartUrl"></div>
+            <div class="recommend-panel-footer">
+                <p class="notuserforme">This is not useful for me</p>
+                <div class="flex-container" *ngIf="buttonText.length > 0">
+                    <div *ngIf="buttonText[0].text" class="white-button">{{buttonText[0].text}}</div>
+                    <div *ngIf="buttonText[1].text" class="blue-button" (click)="showMe(buttonText[1].type)">{{buttonText[1].text}}</div>
+                </div>
             </div>
-        </div>
+        </ng-container>
+        <ng-template #success>
+            <div class="success-panel-header">
+                <img class="close-icon" *ngIf="isFlowRunning" [src]="closeIconUrl" (click)="stopFlow()" />
+            </div>
+            <div class="success-wrapper">
+                <div><img class="tImage" [src]="tShirtUrl"></div>
+                <div class="flex-container implement-container">
+                    <div class="success-panel-body">{{message}}</div>
+                </div>
+            </div>
+            <div class="recommend-panel-footer">
+                <div class="flex-container" *ngIf="buttonText.length > 0">
+                    <div *ngIf="buttonText[0].text" class="green-button">{{buttonText[0].text}}</div>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </div>
 <app-recommendationpanel *ngIf="isShowRecommendation" (closePanelEmit)="closeRecommendation()"></app-recommendationpanel>

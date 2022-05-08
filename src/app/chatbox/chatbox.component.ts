@@ -19,6 +19,7 @@ export class ChatboxComponent implements OnInit {
   bulbUrl: SafeResourceUrl;
   learnMoreUrl: SafeResourceUrl;
   brightbulbUrl: SafeResourceUrl;
+  tShirtUrl: SafeResourceUrl;
   isShowWindow = false;
   isFlowRunning = false;
   isShowRecommendation = false;
@@ -29,6 +30,7 @@ export class ChatboxComponent implements OnInit {
   buttonText: any[];
   currentPathStepIndex = 0;
   closeIconUrl;
+  typePanel;
   constructor(private _domComponent: DomComponentsService, private domHandler: DomHandlerService, private _domSanitizer: DomSanitizer, private router: Router) {
     this.oldHrefSub = new BehaviorSubject(null);
     this.assistantUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
@@ -49,6 +51,9 @@ export class ChatboxComponent implements OnInit {
     this.closeIconUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
         this.EXTENSION_URL + '/assets/images/closeIconBlack.svg'
     );
+    this.tShirtUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
+        this.EXTENSION_URL + '/assets/images/t_p.png'
+    );
   }
 
   ngOnInit(): void {
@@ -60,6 +65,7 @@ export class ChatboxComponent implements OnInit {
         const homeUrls: any[] = this.urlFlow[this.path];
         this.message = homeUrls[this.currentPathStepIndex]?.stepDescription;
         this.buttonText = homeUrls[this.currentPathStepIndex]?.button;
+        this.typePanel = homeUrls[this.currentPathStepIndex]?.type;
         this.isFlowRunning = false;
         switch (this.path) {
           case '/apps/home-page':
@@ -88,14 +94,25 @@ export class ChatboxComponent implements OnInit {
       }
       return true;
     };
-    insentWidgetCheckElement('#btn-apply').then((selector) => {
+    insentWidgetCheckElement('#zi-marketing > div > section > div > zi-fc-creation-wizard > div > div > div > div.stages-container.has-iframe > div.stage > zi-fc-wizard-select-form > div').then((selector) => {
+      this.updateMessage();
       setTimeout(() => {
-        document.querySelector('#btn-apply').addEventListener('click', () => {
-          this.currentPathStepIndex = this.currentPathStepIndex + 1;
-          const flows: any[] = this.urlFlow[this.path];
-          this.message = flows[this.currentPathStepIndex]?.stepDescription;
-          this.buttonText = flows[this.currentPathStepIndex]?.button;
+        this.startAnimation('#zi-marketing > div > section > div > zi-fc-creation-wizard > div > div > div > div.stages-container.has-iframe > div.stage > zi-fc-wizard-select-form > div > div.settings > div > div')
+      }, 5000)
+    });
+    insentWidgetCheckElement('#zi-marketing > div > section > div > zi-fc-creation-wizard > div > div > div > div.stages-container.has-iframe > div.stage > zi-fc-wizard-map-form > div > div.main-section > div > div.mapping-container > div.list-fields.ng-star-inserted > zi-fc-wizard-map-field:nth-child(1) > div').then((selector) => {
+      this.updateMessage();
+      setTimeout(() => {
+        this.startAnimation('#zi-marketing > div > section > div > zi-fc-creation-wizard > div > div > div > div.stages-container.has-iframe > div.stage > zi-fc-wizard-map-form > div > div.main-section > div > div.add-field-btn')
+      }, 3000)
+    });
+    insentWidgetCheckElement('#zi-marketing > div > section > div > zi-fc-creation-wizard > div > div > div > div.stages-container > div.stage > zi-fc-wizard-verify-form > div.content > div.script-section > zi-formcomplete-code-snippet > div').then((selector) => {
+      this.updateMessage();
+      setTimeout(() => {
+        document.querySelector('#btn-copy-html-to-clipboard').addEventListener("click", () => {
+          this.updateMessage();
         })
+        this.startAnimation('#btn-copy-html-to-clipboard')
       }, 3000)
     });
   }
@@ -130,7 +147,7 @@ export class ChatboxComponent implements OnInit {
     insentWidgetCheckElement('#show-more-down-arrow').then((selector) => {
       setTimeout(() => {
         document.getElementById('show-more-down-arrow').addEventListener('click', () => {
-          this.startAnimation('#show-more-down-arrow > div > div.navbar-item-content-hidden-pages > div > div:nth-child(4)');
+          this.startAnimation('[automation-id="FormComplete"]');
         })
       }, 3000)
     });
@@ -174,19 +191,31 @@ export class ChatboxComponent implements OnInit {
     this.isShowRecommendation = false;
   }
 
-  showMe() {
-    switch (this.path) {
-      case '/apps/home-page':
-        this.startAnimation("#show-more-down-arrow > div > div.navbar-item-content-name");
-        break;
-      case '/apps/marketing/form-complete/analytics':
-        this.startAnimation("#zi-marketing-sidebar-management");
-        break;
-      case '/apps/marketing/form-complete/wizard/new':
-        this.handleFormCompleteSubmission();
-        break;
-      default:
+  showMe(type) {
+    if (type === 3) {
+      this.nextMe();
+    } else {
+      switch (this.path) {
+        case '/apps/home-page':
+          this.startAnimation("#show-more-down-arrow > div > div.navbar-item-content-name");
+          break;
+        case '/apps/marketing/form-complete/analytics':
+          this.startAnimation("#zi-marketing-sidebar-management");
+          break;
+        case '/apps/marketing/form-complete/wizard/new':
+          this.handleFormCompleteSubmission();
+          break;
+        default:
+      }
     }
+
+  }
+
+  nextMe() {
+    this.currentPathStepIndex = this.currentPathStepIndex + 1;
+    const flows: any[] = this.urlFlow[this.path];
+    this.message = flows[this.currentPathStepIndex]?.stepDescription;
+    this.buttonText = flows[this.currentPathStepIndex]?.button;
   }
 
   startAnimation(selector) {
@@ -224,6 +253,14 @@ export class ChatboxComponent implements OnInit {
     style.innerHTML = keyFrames;
     document.getElementsByTagName('head')[0].appendChild(style);
     dimmer.style.animation = "highlight"+random_number+" 4s ease-out forwards";
+  }
+
+  updateMessage() {
+    this.currentPathStepIndex = this.currentPathStepIndex + 1;
+    const flows: any[] = this.urlFlow[this.path];
+    this.message = flows[this.currentPathStepIndex]?.stepDescription;
+    this.buttonText = flows[this.currentPathStepIndex]?.button;
+    this.typePanel = flows[this.currentPathStepIndex]?.type;
   }
 
 }
