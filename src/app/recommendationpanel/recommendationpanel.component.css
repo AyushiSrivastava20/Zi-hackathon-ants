@@ -1,0 +1,105 @@
+.recommendation-container {
+    position: fixed;
+    left: 0;
+    top:0;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    border-top-right-radius: 8px;
+    background: #f2f6ff;
+    width: 308px;
+    padding: 12px 0 12px 12px;
+    z-index: 10001;
+    border: 1px solid #D9DDE4;
+    box-shadow: 0 24px 32px -24px rgba(117, 133, 160, 0.3);
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.card-container {
+    margin-top: 12px;
+    width: 280px;
+    height: 172px;
+    /* 2.0/$white */
+    padding: 12px 0 12px 12px;
+    background: #FFFFFF;
+    /* 2.0/gray/$gray_30 */
+    border: 1px solid #D9DDE4;
+    /* 2.0/$dropdown */
+    border-radius: 10px;
+    box-shadow: 0px 24px 32px -24px rgba(117, 133, 160, 0.3);
+}
+
+.card-container:last-child {
+    margin-bottom: 10px;
+}
+
+.fixed-top-header {
+    display: flex;
+    border-bottom: 1px solid #CACACA;
+}
+
+.fixed-profile {
+
+}
+
+.scrollable-container {
+    overflow-y: scroll;
+}
+
+.chartPoint {
+    height: 45px;
+}
+
+.user-points {
+    margin-top: 12px;
+    width: 280px;
+    /* 2.0/$white */
+    padding: 12px 0 12px 12px;
+    background: #FFFFFF;
+    /* 2.0/gray/$gray_30 */
+    border: 1px solid #D9DDE4;
+    /* 2.0/$dropdown */
+    border-radius: 10px;
+    box-shadow: 0px 24px 32px -24px rgba(117, 133, 160, 0.3);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.user-points-details {
+    margin-left: 18px;
+}
+
+.header-text {
+    /* Body 1 / 16 Semibold */
+    font-style: normal;
+    font-weight: 600;
+    font-family: 'Sharp Sans', sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    color: #0041C0;
+    margin-bottom: 10px;
+}
+
+.body-text {
+    /* Body 2 / 14 Medium */
+
+    font-family: 'Sharp Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    /* or 157% */
+    color: #525F76;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

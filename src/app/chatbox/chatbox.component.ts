@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 const CHROME = chrome;
 import urlSteps from '../mocks/url_flows.json';
-import {NavigationEnd, NavigationStart} from "@angular/router"; // This import style requires "esModuleInterop", see "side notes"
 import { Router } from '@angular/router';
 import {DomHandlerService} from "../services/dom-handler/dom-handler.service";
 
