@@ -1,8 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DomComponentsService} from "./services/dom-handler/dom-components.service";
 import {ChatboxComponent} from "./chatbox/chatbox.component";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {RecommendationpanelComponent} from "./recommendationpanel/recommendationpanel.component";
 
 @Component({
   selector: 'app-zi-hackathon-ants',
@@ -12,15 +10,7 @@ import {RecommendationpanelComponent} from "./recommendationpanel/recommendation
 export class AppComponent implements OnInit, OnDestroy{
   title = 'Zi-hackathon-ants';
   componentRefs: any[]=[];
-  constructor(private _domComponent: DomComponentsService, private router: Router, private activatedRoute: ActivatedRoute) {
-    this.router.events
-        .subscribe((event: any) => {
-          console.log(event);
-        });
-    this.activatedRoute.paramMap.subscribe(paramMap  =>  {
-      console.log(paramMap)
-    });
-  }
+  constructor(private _domComponent: DomComponentsService) {}
 
   ngOnInit(): void {
     const chatBoxEle = this.initiateChatBoxComponent();
@@ -37,5 +27,13 @@ export class AppComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(): void {
+  }
+
+  highlightMoreButton() {
+    const moreBtn = document.getElementById('show-more-down-arrow').firstChild;
+  }
+
+  createFOrmBtn(){
+    document.getElementById('btn-create-new-form')
   }
 }

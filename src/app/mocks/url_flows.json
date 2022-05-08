@@ -1,5 +1,5 @@
 {
-  "apps/home-page" : [
+  "/apps/home-page" : [
     {
       "step": 1,
       "url": "apps/home-page",
@@ -43,7 +43,7 @@
       ]
     }
   ],
-  "apps/marketing/form-complete/management" : [
+  "/apps/marketing/form-complete/management" : [
     {
       "step": 1,
       "url": "apps/marketing/form-complete/management",
@@ -61,7 +61,7 @@
       ]
     }
   ],
-  "apps/marketing/form-complete/wizard/new" : [
+  "/apps/marketing/form-complete/wizard/new" : [
     {
       "step": 1,
       "url": "apps/marketing/form-complete/wizard/new",

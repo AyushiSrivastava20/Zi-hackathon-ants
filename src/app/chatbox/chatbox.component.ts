@@ -4,8 +4,8 @@ const CHROME = chrome;
 import urlSteps from '../mocks/url_flows.json';
 import { Router } from '@angular/router';
 import {DomHandlerService} from "../services/dom-handler/dom-handler.service";
-import {RecommendationpanelComponent} from "../recommendationpanel/recommendationpanel.component";
 import {DomComponentsService} from "../services/dom-handler/dom-components.service";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-chatbox',
@@ -21,8 +21,11 @@ export class ChatboxComponent implements OnInit {
   brightbulbUrl: SafeResourceUrl;
   isShowWindow = false;
   isShowRecommendation = false;
-  urlFlow = {...urlSteps}
+  urlFlow = {...urlSteps};
+  oldHrefSub: BehaviorSubject<any>;
+
   constructor(private _domComponent: DomComponentsService, private domHandler: DomHandlerService, private _domSanitizer: DomSanitizer, private router: Router) {
+    this.oldHrefSub = new BehaviorSubject(null);
     this.assistantUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
         this.EXTENSION_URL + '/assets/images/icon.png'
     );
@@ -38,9 +41,62 @@ export class ChatboxComponent implements OnInit {
     this.brightbulbUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
         this.EXTENSION_URL + '/assets/images/brightbulb.svg'
     );
+    // console.log(this.urlFlow['apps/home-page'])
   }
 
   ngOnInit(): void {
+    this.setUpLocationChange();
+    this.oldHrefSub.subscribe(route => {
+      if (route) {
+        const path = route.split('#')[1];
+        switch (path) {
+          case '/apps/home-page':
+            this.homePageHandling();
+            break;
+          case '/apps/marketing/form-complete/analytics':
+            this.handleFormCompleteAnalytics();
+            break;
+          case '/apps/marketing/form-complete/management':
+            this.handleFormCompleteManagement();
+            break;
+          case '/apps/marketing/form-complete/wizard/new':
+            this.handleFormCompleteSubmission();
+            break;
+          default:
+        }
+      }
+    });
+  }
+
+  handleFormCompleteSubmission() {
+
+  }
+
+  handleFormCompleteManagement() {
+
+  }
+
+  homePageHandling() {
+
+  }
+
+  handleFormCompleteAnalytics() {
+
+  }
+
+  setUpLocationChange() {
+    let observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (this.oldHrefSub.value != document.location.href) {
+          this.oldHrefSub.next(document.location.href);
+        }
+      });
+    });
+    const config = {
+      childList: true,
+      subtree: true
+    };
+    observer.observe(document, config);
   }
 
   openWindow() {
