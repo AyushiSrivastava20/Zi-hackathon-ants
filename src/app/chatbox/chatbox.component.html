@@ -1,23 +1,25 @@
-<div class="popup-container" (click)="openCloseRecommendation()" (mouseenter)="openWindow()" (mouseleave)="closeWindow()">
-    <div id="assistant" class="popup">
+<div class="popup-container">
+    <div id="assistant" class="popup" (click)="openCloseRecommendation()" (mouseenter)="openWindow()" (mouseleave)="closeWindow()">
         <div id="bright-bulb-container" *ngIf="!isShowWindow">
             <img [src]="brightbulbUrl" id="bright-bulb-image"/>
         </div>
         <img class="logoimage" [src]="assistantUrl">
     </div>
-    <div  id="recommend-panel" class="recommend-panel" *ngIf="isShowWindow">
+    <div  id="recommend-panel" class="recommend-panel" *ngIf="(isShowWindow && !isShowRecommendation) || isFlowRunning">
         <div class="recommend-panel-header">
-            <div id="recommend-panel-recommend">
-                <img id="recommend-panel-recommend-bulb-image" class="bulbImage" [src]="bulbUrl" alt="bulb image"/>
-                <p id="recommend-panel-recommend-text">
-                    Recommendation
-                </p>
+            <div>
+                <div id="recommend-panel-recommend">
+                    <img id="recommend-panel-recommend-bulb-image" class="bulbImage" [src]="bulbUrl" alt="bulb image"/>
+                    <p id="recommend-panel-recommend-text">
+                        Recommendation
+                    </p>
+                </div>
+                <p id="found-useful">234 others found this useful</p>
             </div>
-            <p id="found-useful">234 others found this useful</p>
+            <img class="close-icon" *ngIf="isFlowRunning" [src]="closeIconUrl" (click)="stopFlow()" />
         </div>
         <div class="flex-container implement-container">
-            <div class="recommend-panel-body">Implement FormComplete to get an uplift of <span class="green-text">34%</span> in
-            qualified leads !</div>
+            <div class="recommend-panel-body">{{message}}</div>
             <div class="learn-more-text">
                 Learn more
                 <img [src]="learnMoreUrl" id="learn-more-image"/>
@@ -26,12 +28,12 @@
         <div><img class="chartImage" [src]="chartUrl"></div>
         <div class="recommend-panel-footer">
             <p class="notuserforme">This is not useful for me</p>
-            <div class="flex-container">
-                <div class="white-button">Remind me next week</div>
-                <div class="blue-button">Show me</div>
+            <div class="flex-container" *ngIf="buttonText.length > 0">
+                <div class="white-button">{{buttonText[0].text}}</div>
+                <div class="blue-button">{{buttonText[1].text}}</div>
             </div>
         </div>
     </div>
 </div>
-<app-recommendationpanel *ngIf="isShowRecommendation"></app-recommendationpanel>
+<app-recommendationpanel *ngIf="isShowRecommendation" (closePanelEmit)="closeRecommendation()"></app-recommendationpanel>
 

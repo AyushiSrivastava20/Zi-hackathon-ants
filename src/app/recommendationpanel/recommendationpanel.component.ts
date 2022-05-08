@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import recommendations from '../mocks/recommendations.json';
 import {DomSanitizer} from "@angular/platform-browser";
 const CHROME = chrome;
+import {EventEmitter} from '@angular/core';
 
 export interface Recommendation {
   recommendation: string,
@@ -21,6 +22,7 @@ export class RecommendationpanelComponent implements OnInit {
   chartPointUrl
   closeIconUrl
   recommendationsList: Recommendation[] = recommendations;
+  @Output() closePanelEmit = new EventEmitter<boolean>();
   constructor(private _domSanitizer: DomSanitizer) {
     this.chartPointUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
         this.EXTENSION_URL + '/assets/images/level3zoom.svg'
@@ -31,6 +33,10 @@ export class RecommendationpanelComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  closePanel() {
+    this.closePanelEmit.emit(false);
   }
 
 }

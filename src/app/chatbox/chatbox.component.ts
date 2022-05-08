@@ -20,10 +20,15 @@ export class ChatboxComponent implements OnInit {
   learnMoreUrl: SafeResourceUrl;
   brightbulbUrl: SafeResourceUrl;
   isShowWindow = false;
+  isFlowRunning = false;
   isShowRecommendation = false;
   urlFlow = {...urlSteps};
   oldHrefSub: BehaviorSubject<any>;
-
+  message;
+  path;
+  buttonText: any[];
+  currentPathStepIndex = 0;
+  closeIconUrl;
   constructor(private _domComponent: DomComponentsService, private domHandler: DomHandlerService, private _domSanitizer: DomSanitizer, private router: Router) {
     this.oldHrefSub = new BehaviorSubject(null);
     this.assistantUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
@@ -41,15 +46,21 @@ export class ChatboxComponent implements OnInit {
     this.brightbulbUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
         this.EXTENSION_URL + '/assets/images/brightbulb.svg'
     );
-    // console.log(this.urlFlow['apps/home-page'])
+    this.closeIconUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
+        this.EXTENSION_URL + '/assets/images/closeIconBlack.svg'
+    );
   }
 
   ngOnInit(): void {
     this.setUpLocationChange();
     this.oldHrefSub.subscribe(route => {
       if (route) {
-        const path = route.split('#')[1];
-        switch (path) {
+        this.currentPathStepIndex = 0;
+        this.path = route.split('#')[1];
+        const homeUrls: any[] = this.urlFlow[this.path];
+        this.message = homeUrls[this.currentPathStepIndex]?.stepDescription;
+        this.buttonText = homeUrls[this.currentPathStepIndex]?.button;
+        switch (this.path) {
           case '/apps/home-page':
             this.homePageHandling();
             break;
@@ -69,19 +80,20 @@ export class ChatboxComponent implements OnInit {
   }
 
   handleFormCompleteSubmission() {
-
+    console.log('handleFormCompleteSubmission');
   }
 
   handleFormCompleteManagement() {
-
+    this.isFlowRunning = true;
+    //document.getElementById('recommend-panel')?.style.animation = "";
   }
 
   homePageHandling() {
-
   }
 
   handleFormCompleteAnalytics() {
-
+    this.isFlowRunning = true;
+    //document.getElementById('recommend-panel')?.style.animation = "";
   }
 
   setUpLocationChange() {
@@ -107,8 +119,16 @@ export class ChatboxComponent implements OnInit {
     this.isShowWindow = false;
   }
 
+  stopFlow() {
+    this.isFlowRunning = false;
+  }
+
   openCloseRecommendation(){
-    this.isShowRecommendation = !this.isShowRecommendation
+    this.isShowRecommendation = !this.isShowRecommendation;
+    //this.isShowWindow = false;
+  }
+  closeRecommendation() {
+    this.isShowRecommendation = false;
   }
 
 }

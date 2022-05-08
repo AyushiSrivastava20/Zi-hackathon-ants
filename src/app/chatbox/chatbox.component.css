@@ -68,7 +68,8 @@
 
 .recommend-panel-header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .recommend-panel-header-text{
@@ -193,6 +194,11 @@ span.green-text{
     color: #BBB9B9;
     height: 8px;
     font-size: 8px;
+}
+
+.close-icon {
+    height: 8px;
+    width: 8px;
 }
 
 #found-useful{

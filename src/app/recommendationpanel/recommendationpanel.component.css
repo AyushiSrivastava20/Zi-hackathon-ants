@@ -28,7 +28,6 @@
 }
 
 .card-container {
-    margin-top: 30px;
     width: 280px;
     height: 167px;
     /* 2.0/$white */
@@ -39,6 +38,9 @@
     /* 2.0/$dropdown */
     border-radius: 10px;
     box-shadow: 0px 24px 32px -24px rgba(117, 133, 160, 0.4);
+}
+.card-container:not(:first-child) {
+    margin-top: 30px;
 }
 
 .card-container:last-child {
@@ -70,6 +72,7 @@
 
 .user-points {
     margin-top: 12px;
+    margin-bottom: 30px;
     width: 280px;
     /* 2.0/$white */
     padding: 12px 0 12px 12px;
@@ -128,7 +131,6 @@
     color: #525F76;
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
     padding: 11px 0;
 }
 
@@ -144,7 +146,7 @@
     border-radius: 14px;
     background-color: #0061FF;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 12px;
     line-height:22px;
     padding: 0 14px;
     width: fit-content;

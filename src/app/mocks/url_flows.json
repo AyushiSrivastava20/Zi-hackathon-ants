@@ -2,7 +2,7 @@
   "/apps/home-page" : [
     {
       "step": 1,
-      "url": "apps/home-page",
+      "url": "/apps/home-page",
       "stepDescription": "Implement FormComplete to get an uplift of 34% in qualified leads !",
       "type": "animation",
       "button" : [
@@ -13,25 +13,13 @@
           "text": "Show me"
         }
       ]
-    },
+    }
+  ],
+  "/apps/marketing/form-complete/analytics" : [
     {
-      "step": 2,
-      "url": "apps/home-page",
-      "stepDescription": "Did you know that you can generate more leads with FormComplete?",
-      "type": "animation",
-      "button" : [
-        {
-          "text": "Remind me next week"
-        },
-        {
-          "text": "Show me"
-        }
-      ]
-    },
-    {
-      "step": 2,
-      "url": "apps/home-page",
-      "stepDescription": "Did you know that you can generate more leads with FormComplete?",
+      "step": 1,
+      "url": "/apps/marketing/form-complete/analytics",
+      "stepDescription": "Did you know that you can generate more leads with FormComplete? Go to Management Tab and get started!",
       "type": "animation",
       "button" : [
         {
@@ -46,7 +34,7 @@
   "/apps/marketing/form-complete/management" : [
     {
       "step": 1,
-      "url": "apps/marketing/form-complete/management",
+      "url": "/apps/marketing/form-complete/management",
       "stepDescription": "Click on Create New Form",
       "type": "animation",
       "button" : [
