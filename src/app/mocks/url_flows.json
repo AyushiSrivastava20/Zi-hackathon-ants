@@ -3,8 +3,8 @@
     {
       "step": 1,
       "url": "apps/home-page",
-      "stepDescription": "Did you know that you can generate more leads with FormComplete?",
-      "type": "annimation",
+      "stepDescription": "Implement FormComplete to get an uplift of 34% in qualified leads !",
+      "type": "animation",
       "button" : [
         {
           "text": "Remind me next week"
@@ -18,7 +18,7 @@
       "step": 2,
       "url": "apps/home-page",
       "stepDescription": "Did you know that you can generate more leads with FormComplete?",
-      "type": "annimation",
+      "type": "animation",
       "button" : [
         {
           "text": "Remind me next week"
@@ -29,11 +29,10 @@
       ]
     },
     {
-      // on 3rd step click into action - apps/marketing/form-complete/management
       "step": 2,
       "url": "apps/home-page",
       "stepDescription": "Did you know that you can generate more leads with FormComplete?",
-      "type": "annimation",
+      "type": "animation",
       "button" : [
         {
           "text": "Remind me next week"
@@ -49,7 +48,7 @@
       "step": 1,
       "url": "apps/marketing/form-complete/management",
       "stepDescription": "Click on Create New Form",
-      "type": "annimation",
+      "type": "animation",
       "button" : [
       ]
     },
@@ -67,7 +66,7 @@
       "step": 1,
       "url": "apps/marketing/form-complete/wizard/new",
       "stepDescription": "Enter the website URL where the form is available and click Apply",
-      "type": "annimation",
+      "type": "animation",
       "button" : [
       ]
     },
@@ -83,17 +82,15 @@
       "step": 3,
       "url": "apps/marketing/form-complete/wizard/new",
       "stepDescription": "Click on “Add Field” to map your form fields with Zoominfo fields",
-      "type": "annimation",
+      "type": "animation",
       "button" : [
       ]
     },
     {
-      // gear event listener
-      //optional dynamic
       "step": 4,
       "url": "apps/marketing/form-complete/wizard/new",
       "stepDescription": "When a user selects a field that has drop down values, show this message: “Click on the gear icon next to the Zoominfo field to do advanced mapping”",
-      "type": "annimation",
+      "type": "animation",
       "button" : [
       ]
     },
@@ -101,7 +98,7 @@
       "step": 5,
       "url": "apps/marketing/form-complete/wizard/new",
       "stepDescription": "Did you know that you can increase the lead capture by 30% by enabling Abandoned Form Tracking and IP based enrichment?",
-      "type": "annimation",
+      "type": "animation",
       "button" : [
       ]
     },
@@ -109,7 +106,7 @@
       "step": 6,
       "url": "apps/marketing/form-complete/wizard/new",
       "stepDescription": "You’re almost done. All you need to do now is to add the script on the website URL where the form is available",
-      "type": "annimation",
+      "type": "animation",
       "button" : [
       ]
     }

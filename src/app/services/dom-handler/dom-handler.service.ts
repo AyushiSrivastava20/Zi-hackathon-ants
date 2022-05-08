@@ -211,4 +211,18 @@ export class DomHandlerService {
   closest(element: HTMLElement, selector: string): HTMLElement {
     return element.closest(selector);
   }
+
+  /**
+   * Returns the browser viewport height and width.
+   */
+  getViewport(): { width: any; height: any } {
+    const win = window;
+    const d = document;
+    const e = d.documentElement;
+    const g = d.getElementsByTagName('body')[0];
+    const w = win.innerWidth || e.clientWidth || g.clientWidth;
+    const h = win.innerHeight || e.clientHeight || g.clientHeight;
+
+    return { width: w, height: h };
+  }
 }

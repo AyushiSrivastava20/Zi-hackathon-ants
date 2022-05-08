@@ -1,32 +1,14 @@
-<div class="popup">
-    <img class="logoimage" [src]="assistantUrl">
-</div>
-<div class="recommend-panel">
-    <p>
-        Did you know, you can generate<br/>
-        34% more quality leads if you implement FormComplete?
-    </p>
-    <p>
-        Formcomplete can give you blah and blah, give more websites blah blah, etc.
-    </p>
-    <p>
-        You're positioned blah blah and these metrics match your blah blah<br/>
-        Formcomplete can give you blah and blah, give more websites blah blah, etc.
-    </p>
-    <p>
-        You're positioned blah blah and these metrics match your blah blah<br/>
-        Formcomplete can give you blah and blah, give more websites blah blah, etc.
-    </p>
-    <div>
-        <img>
-        <div>
-            <p>
-
-            </p>
-            <p>
-
-            </p>
+<div class="popup-container">
+    <div id="assistant" class="popup" (click)="openWindow()">
+        <img class="logoimage" [src]="assistantUrl">
+    </div>
+    <div  id="recommend-panel" class="recommend-panel" *ngIf="isShowWindow">
+        <div class="recommend-panel-header">
         </div>
+        <div class="recommend-panel-body">Implement FormComplete to get an uplift of 34% in
+            qualified leads !</div>
+        <div><img class="chartImage" [src]="chartUrl"></div>
+        <div class="recommend-panel-footer"></div>
     </div>
 </div>
 

@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DomComponentsService} from "./services/dom-handler/dom-components.service";
 import {ChatboxComponent} from "./chatbox/chatbox.component";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'app-zi-hackathon-ants',
@@ -10,8 +11,14 @@ import {ChatboxComponent} from "./chatbox/chatbox.component";
 export class AppComponent implements OnInit, OnDestroy{
   title = 'Zi-hackathon-ants';
   componentRefs: any[]=[];
-  constructor(private _domComponent: DomComponentsService) {
-    console.log("App Loaded")
+  constructor(private _domComponent: DomComponentsService, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.router.events
+        .subscribe((event: any) => {
+          console.log(event);
+        });
+    this.activatedRoute.paramMap.subscribe(paramMap  =>  {
+      console.log(paramMap)
+    });
   }
 
   ngOnInit(): void {
@@ -24,7 +31,6 @@ export class AppComponent implements OnInit, OnDestroy{
    */
   private initiateChatBoxComponent(): HTMLElement {
     const compRefAttach = this._domComponent.createComponentRef(ChatboxComponent);
-    console.log(compRefAttach);
     this.componentRefs.push(compRefAttach);
     return this._domComponent.getDomElementFromComponentRef(compRefAttach);
   }

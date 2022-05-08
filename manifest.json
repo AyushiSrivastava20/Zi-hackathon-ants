@@ -18,7 +18,10 @@
     {
       "matches": [
         "https://mail.google.com/*",
-        "https://inbox.google.com/*"
+        "https://inbox.google.com/*",
+        "https://app.zoominfo.com/*",
+        "https://dozi-staging.zoominfo.com/*",
+        "https://app-preprod.zoominfo.com/*"
       ],
       "js": ["assets/content.js", "main-es2015.js", "polyfills-es2015.js"]
     }
