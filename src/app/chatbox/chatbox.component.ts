@@ -60,47 +60,10 @@ export class ChatboxComponent implements OnInit {
         const homeUrls: any[] = this.urlFlow[this.path];
         this.message = homeUrls[this.currentPathStepIndex]?.stepDescription;
         this.buttonText = homeUrls[this.currentPathStepIndex]?.button;
+        this.isFlowRunning = false;
         switch (this.path) {
           case '/apps/home-page':
             this.homePageHandling();
-            setTimeout(() => {
-              console.log('DOM fully loaded and parsed');
-              let moreOptionsDiv = document.querySelector("#show-more-down-arrow > div > div.navbar-item-content-name");
-              let moreOptionsPosition = moreOptionsDiv.getBoundingClientRect();
-              console.log("moreOptionsPosition", moreOptionsPosition);
-              let dimmer = document.getElementById("dimmer");
-              var style = document.createElement('style');
-              style.type = 'text/css';
-              var keyFrames = '\
-                @keyframes highlight {\
-                  0% {\
-                    height: 120vh;\
-                    width: 120vw;\
-                    top:0;\
-                    left:0;\
-                    opacity: 1;\
-                  }\
-                  \
-                  12% {\
-                    height: '+moreOptionsPosition.height.toString()+'px;\
-                    width: '+(moreOptionsPosition.width+18).toString()+'px;\
-                    top: '+moreOptionsPosition.top.toString()+'px;\
-                    left: '+moreOptionsPosition.left.toString()+'px;\
-                    opacity: 1;\
-                  }\
-                  100%{\
-                    height: '+moreOptionsPosition.height.toString()+'px;\
-                    width: '+(moreOptionsPosition.width+18).toString()+'px;\
-                    top: '+moreOptionsPosition.top.toString()+'px;\
-                    left: '+moreOptionsPosition.left.toString()+'px;\
-                    opacity: 0;\
-                  }\
-                }';
-              style.innerHTML = keyFrames;
-              document.getElementsByTagName('head')[0].appendChild(style);
-              dimmer.style.animation = "highlight 4s ease-out forwards";
-
-            }, 5000);
             break;
           case '/apps/marketing/form-complete/analytics':
             this.handleFormCompleteAnalytics();
@@ -123,15 +86,29 @@ export class ChatboxComponent implements OnInit {
 
   handleFormCompleteManagement() {
     this.isFlowRunning = true;
-    //document.getElementById('recommend-panel')?.style.animation = "";
+    const insentWidgetCheckElement = async selector => {
+      while ( document.querySelector(selector) === null) {
+        await new Promise( resolve =>  requestAnimationFrame(resolve) )
+      }
+      return true;
+    };
+    insentWidgetCheckElement('#btn-create-new-form').then((selector) => {
+      setTimeout(() => {
+        this.startAnimation('#btn-create-new-form');
+      }, 3000)
+    });
+    insentWidgetCheckElement('[automationid="action-button-dropdown-li-auto mapping"]').then((selector) => {
+      console.log("happening");
+      setTimeout(() => {
+        this.startAnimation('[automationid="action-button-dropdown-li-auto mapping"]');
+      }, 3000)
+    });
   }
 
   homePageHandling() {
   }
 
   handleFormCompleteAnalytics() {
-    this.isFlowRunning = true;
-    //document.getElementById('recommend-panel')?.style.animation = "";
   }
 
   setUpLocationChange() {
@@ -167,6 +144,58 @@ export class ChatboxComponent implements OnInit {
   }
   closeRecommendation() {
     this.isShowRecommendation = false;
+  }
+
+  showMe() {
+    switch (this.path) {
+      case '/apps/home-page':
+        this.startAnimation("#show-more-down-arrow > div > div.navbar-item-content-name");
+        break;
+      case '/apps/marketing/form-complete/analytics':
+        this.startAnimation("#zi-marketing-sidebar-management");
+        break;
+      case '/apps/marketing/form-complete/wizard/new':
+        this.handleFormCompleteSubmission();
+        break;
+      default:
+    }
+  }
+
+  startAnimation(selector) {
+    let moreOptionsDiv = document.querySelector(selector);
+    let moreOptionsPosition = moreOptionsDiv.getBoundingClientRect();
+    console.log("moreOptionsPosition", moreOptionsPosition);
+    let dimmer = document.getElementById("dimmer");
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    var keyFrames = '\
+                @keyframes highlight {\
+                  0% {\
+                    height: 120vh;\
+                    width: 120vw;\
+                    top:0;\
+                    left:0;\
+                    opacity: 1;\
+                  }\
+                  \
+                  12% {\
+                    height: '+moreOptionsPosition.height.toString()+'px;\
+                    width: '+(moreOptionsPosition.width+18).toString()+'px;\
+                    top: '+moreOptionsPosition.top.toString()+'px;\
+                    left: '+moreOptionsPosition.left.toString()+'px;\
+                    opacity: 1;\
+                  }\
+                  100%{\
+                    height: '+moreOptionsPosition.height.toString()+'px;\
+                    width: '+(moreOptionsPosition.width+18).toString()+'px;\
+                    top: '+moreOptionsPosition.top.toString()+'px;\
+                    left: '+moreOptionsPosition.left.toString()+'px;\
+                    opacity: 0;\
+                  }\
+                }';
+    style.innerHTML = keyFrames;
+    document.getElementsByTagName('head')[0].appendChild(style);
+    dimmer.style.animation = "highlight 4s ease-out forwards";
   }
 
 }

@@ -94,23 +94,24 @@
 }
 
 #recommend-panel-recommend{
-    width: 82px;
-    height: 15px;
-    background-color: #FFF2DA;
+    width: 115px;
+    height: 25px;
+    background-color: #fff2da;
     display: flex;
     border-radius: 2px;
+    justify-content: center;
+    align-items: center;
 }
 #recommend-panel-recommend-text{
     font-weight: 500;
-    font-size: 7px;
+    font-size: 10px;
     line-height: 150%;
     color: #000000;
-    margin: 3px 2px 2px 2px;
 }
 
 #recommend-panel-recommend-bulb-image{
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
     margin: 3px;
 }
 
@@ -127,9 +128,8 @@ span.green-text{
 
 #found-useful{
     color: #FAA066;
-    font-size: 6px;
+    font-size: 10px;
     line-height: 22px;
-    margin: 0;
 }
 
 .blue-button{
@@ -161,7 +161,7 @@ span.green-text{
 }
 
 .notuserforme{
-    font-size: 8px;
+    font-size: 10px;
     line-height: 22px;
     opacity: 0.5;
     margin: 0 !important;
@@ -180,6 +180,9 @@ span.green-text{
 
 #learn-more-image{
     margin-left: 2px;
+    height: 10px;
+    width: 10px;
+    margin-bottom: -3px;
 }
 
 .implement-container{
@@ -193,17 +196,12 @@ span.green-text{
     margin-bottom: 4px;
     color: #BBB9B9;
     height: 8px;
-    font-size: 8px;
+    font-size: 10px;
 }
 
 .close-icon {
     height: 8px;
     width: 8px;
-}
-
-#found-useful{
-    line-height: 12px;
-    margin: 0 0 8px 0;
 }
 
 #bright-bulb-container{
