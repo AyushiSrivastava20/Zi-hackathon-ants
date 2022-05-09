@@ -34,6 +34,7 @@ export class RecommendationpanelComponent implements OnInit {
   level3Url;
   level4Url;
   linkedInIconUrl;
+  points = 600;
   @Input() activeTabId = 1;
   recommendationsList: Recommendation[] = recommendations;
   leaderboardsList: Leaderboards[] = leaderboards;
@@ -60,8 +61,9 @@ export class RecommendationpanelComponent implements OnInit {
     this.linkedInIconUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(
         this.EXTENSION_URL + '/assets/images/linkedin.svg'
     );
-
-
+    setTimeout(() => {
+      this.points = 1000;
+    }, 5000)
   }
 
   ngOnInit(): void {

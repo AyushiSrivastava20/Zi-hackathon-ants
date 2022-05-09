@@ -8,7 +8,7 @@
         <img class="chartPoint" [src]="chartPointUrl">
         <div class="user-points-details">
             <div>Stanley Hudson</div>
-            <div>Points: 400</div>
+            <div>Points: {{points}}</div>
         </div>
     </div>
     <div class="flex-container" id="join-slack-community">
@@ -33,12 +33,13 @@
     </div>
     <ng-template #other>
         <div class="scrollable-container">
-            <ng-container *ngFor="let r of leaderboardsList">
-                <div class="user-points">
+            <ng-container *ngFor="let r of leaderboardsList;  let i = index">
+                <div class="user-points" [id]="'userpoints'+i">
                     <img class="chartPoint" [src]="getSrc(r.level)">
                     <div class="user-points-details">
                         <div>{{r.name}}</div>
-                        <div>{{r.points}}</div>
+                        <div *ngIf="r.name === 'Stanley Hudson'; else pointer">{{points}}</div>
+                        <ng-template #pointer>{{r.points}}</ng-template>
                     </div>
                 </div>
             </ng-container>
