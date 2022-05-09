@@ -27,7 +27,10 @@
                     <div class="header-points" *ngIf="r.points">Points: {{r.points}}</div>
                 </div>
                 <div class="body-text">{{r.recommendation}}</div>
-                <div class="button-container">{{r.buttonAction}}</div>
+                <div class="recommend-flex">
+                    <div class="button-container">{{r.buttonAction}}</div>
+                    <div class="orangetext">{{r.reco}} people recommended this</div>
+                </div>
             </div>
         </ng-container>
     </div>

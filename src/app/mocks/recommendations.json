@@ -5,46 +5,52 @@
     "buttonAction": "Create Workflow",
     "points": "700",
     "extra": "",
-    "imageName": ""
+    "imageName": "",
+    "reco": 234
   },
   {
     "recommendation": "You should target these accounts into a campaign",
     "tittle": "Report",
     "buttonAction": "Create Reports",
-    "points": "",
+    "points": "250",
     "extra": "",
-    "imageName": ""
+    "imageName": "",
+    "reco": 345
   },
   {
     "recommendation": "Automate what you would like to do with this type of account behaviour ",
     "tittle": "Animation",
     "buttonAction": "Create Workflow",
-    "points": "",
+    "points": "1000",
     "extra": "",
-    "imageName": ""
+    "imageName": "",
+    "reco": 456
   },
   {
     "recommendation": "Automate what you would like to do with this type of account behaviour ",
     "tittle": "Animation",
     "buttonAction": "Create Workflow",
-    "points": "",
+    "points": "500",
     "extra": "",
-    "imageName": ""
+    "imageName": "",
+    "reco": 678
   },
   {
     "recommendation": "Automate what you would like to do with this type of account behaviour ",
     "tittle": "Animation",
     "buttonAction": "Create Workflow",
-    "points": "",
+    "points": "600",
     "extra": "",
-    "imageName": ""
+    "imageName": "",
+    "reco": 890
   },
   {
     "recommendation": "Automate what you would like to do with this type of account behaviour ",
     "tittle": "Animation",
     "buttonAction": "Create Workflow",
-    "points": "",
+    "points": "450",
     "extra": "",
-    "imageName": ""
+    "imageName": "",
+    "reco": 654
   }
 ]

@@ -235,3 +235,17 @@
 #linkedinimage{
     cursor: pointer;
 }
+
+.recommend-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orangetext{
+    font-size: 10px;
+    width: 100px;
+    margin-right: 25px;
+    color: #faa066;
+
+}

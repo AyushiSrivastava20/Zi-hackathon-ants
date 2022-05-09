@@ -11,7 +11,8 @@ export interface Recommendation {
   buttonAction: string,
   points: string,
   extra: string,
-  imageName: string
+  imageName: string,
+  reco: number
 }
 
 export interface Leaderboards {
